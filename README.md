@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# lego-backend
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+using typescript && egg
 
 ## QuickStart
 
