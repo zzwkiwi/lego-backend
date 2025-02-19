@@ -6,7 +6,7 @@ interface DogResp {
 export default class DogService extends Service {
   async show() {
     const resp = await this.ctx.curl<DogResp>('https://dog.ceo/api/breeds/image/random', {
-      dataType: 'json'
+      dataType: 'json',
     })
     return resp.data
   }

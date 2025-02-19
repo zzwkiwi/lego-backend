@@ -11,21 +11,29 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [];
   config.security = {
     csrf: {
-      enable: false,
+      enable: false
     },
   }
   config.view = {
-    defaultViewEngine: 'nunjucks',
+    defaultViewEngine: 'nunjucks'
+  }
+
+  config.logger = {
+    consoleLevel: 'DEBUG'
   }
 
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    myLogger: {
+      allowedMethod: ['POST']
+    },
+    baseUrl: 'default.url',
   };
 
   // the return config will combines to EggAppConfig
   return {
-    ...config,
+    ...config as {},
     ...bizConfig,
   };
 };
