@@ -6,18 +6,15 @@ export default class TestController extends Controller {
     const { id } = ctx.params
     const { query, body } = ctx.request
     const { baseUrl } = ctx.app.config
-    const res = await this.app.axiosInstance.get('/api/breeds/image/random')
-    // NONE| DEBUG | INFO | WARN | ERROR
-    ctx.logger.debug('debug info')
-    ctx.logger.info('res data', res.data)
-    ctx.logger.warn('warning')
-    ctx.logger.error(new Error('whoops'))
-    console.log('axios', res.data)
+    const persons = await ctx.service.dog.showPlayers()
+    console.log('result', persons)
+
     const resp = {
       query,
       id,
       body,
       baseUrl,
+      persons,
     }
     ctx.helper.success({ ctx, res: resp })
   }
